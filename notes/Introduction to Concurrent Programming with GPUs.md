@@ -14,10 +14,7 @@ T​he purpose of this course is to give a base level of knowledge in topics req
 
 At the very end of the course, you will be introduced to the leading GPU programming framework, CUDA. While this will be the main framework used for this specialization and is a great skill to learn, this knowledge can be applied to other frameworks such as OpenCL, Metal, and OpenAcc. Also, there are abstractions in other languages, such as PyCUDA and jCuda, for those wanting to access Nvidia GPUs in their favorite languages. Also, there are frameworks such as TensorFlow and PyTorch that allow you to use machine learning techniques built around neural networks on Nvidia GPUs for improved performance. Nvidia GPUs are not the only accelerators that can be used, there are other manufacturers and technologies including AMD and FPGAs. This course will provide a basis for using them in other programming contexts.
 
-# Week 1 
-We discussed [[Introduction to Concurrent Programming with GPUs Outline]]
-
-# Week 2
+# Week 1
 ## Concurrent Programming Pitfalls
 ### Race Conditions
 - One of the most occurring pitfalls that happens in parallel computing is Race Conditions
@@ -83,7 +80,7 @@ Many of the solutions fit into these five patterns:
 
 ## Flynn’s Taxonomy
 - Flynn's Taxonomy classifies all parallel operations into four categories each category start with SI (Singe-Instruction) or MI (Multi-Instruction) and end with SD (Single-Data) or MD (Multi-Data)
-- ![[Pasted image 20240729023825.png]]
+- ![Flynn's Taxonomy](./assets/Pasted image 20240729023825.png)
 - Single-Instruction and Single-Data
 	- Traditional Von Neumann Single CPU computer
 	- An SISD computing system is a uniprocessor machine which is capable of executing a single instruction, operating on a single data stream
@@ -109,7 +106,7 @@ Many of the solutions fit into these five patterns:
 	- Each PE in the MIMD model has separate instruction and data streams; therefore machines built using this model are capable to any kind of application.
 	- Unlike SIMD and MISD machines, PEs in MIMD machines work asynchronously
 
-# Week 3
+# Week 2
 ## Python 3 Syntax
 - _ thread / threading libraries [[Intro to Python Threading]]
 - asyncio library [[Async IO in Python A Complete Walkthrough]]
@@ -119,7 +116,7 @@ Many of the solutions fit into these five patterns:
 - future library
 - mutex library
 - thread library
-# Week 4
+# Week 3
 ## Nivida GPU architecture
 ### Tesla
 - produced 2007-2011
@@ -179,10 +176,10 @@ Many of the solutions fit into these five patterns:
 	- 115 watts
 ## CUDA Software Layers
 - Our CUDA application can communicate with either the CUDA runtime API layer (NVCC) or the driver API directly 
-![[lt46q7vNR2-eOqu7zbdv8Q_eed25abbc36e4a4da116d131d4781b86_Lesson5_CUDA_Software_Layers-readonly.png]]
+![CUDA software layers](lt46q7vNR2-eOqu7zbdv8Q_eed25abbc36e4a4da116d131d4781b86_Lesson5_CUDA_Software_Layers-readonly.png)
 - If you have chosen to use the higher level CUDA runtime API it can imped the GPU code (in .ptx or .cubin extension)into the host code to do this we need to compile both types of codes via NVCC command and once done they can interoperate we still need to use a host oriented compiler like GCC or G++ which wore output in the executable thankfully via the NVCC command
 - If you are targeting the driver API you have to compile the GPU code (.ptx-.fatbin) and the CPU code (host code) separately then have the host-executable interact with the GPU via the driver API
-![[lt46q7vNR2-eOqu7zbdv8Q_eed25abbc36e4a4da116d131d4781b86_Lلللesson5_CUDA_Software_Layers-readonly.png]]
+![Driver API](lt46q7vNR2-eOqu7zbdv8Q_eed25abbc36e4a4da116d131d4781b86_Lلللesson5_CUDA_Software_Layers-readonly.png)
 ## CUDA Runtime Driver APIs
 - determining how the code will be compiled will change the way the code is written so it’s important to have the vision of compilation in mind
 ### CUDA Runtime API
@@ -193,4 +190,4 @@ Many of the solutions fit into these five patterns:
 - Use it if you want more control on your code and how it works on GPU
 - Can be programmed in assembly but also any language that can link and execute .cubin objects
 - The driver api needs to be initialized at least once using cuInit function 
-# Week 5
+# Week 4
